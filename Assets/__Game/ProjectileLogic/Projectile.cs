@@ -9,6 +9,18 @@ public class Projectile : MonoBehaviour
 
     public float speed = 8f;
 
+    public float radius = 0.5f;
+
+    public void OnEnable()
+    {
+        ProjectileManager.self.projectiles.Add(this);
+    }
+
+    public void OnDisable()
+    {
+        ProjectileManager.self.projectiles.Remove(this);
+    }
+
     public void SetVelocity(Vector3 velocity)
     {
         this.velocity = velocity.normalized;

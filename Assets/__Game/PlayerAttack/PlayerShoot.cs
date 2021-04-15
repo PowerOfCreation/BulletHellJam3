@@ -16,6 +16,8 @@ public class PlayerShoot : MonoBehaviour
 
     private void Fire()
     {
-        PoolingManager.Spawn(playerProjectile, transform.position).GetComponent<Projectile>().SetVelocity(transform.up);
+        GameObject spawnedProjectile = PoolingManager.Spawn(playerProjectile, ProjectileManager.self.transform);
+        spawnedProjectile.transform.position = transform.position;
+        spawnedProjectile.GetComponent<Projectile>().SetVelocity(transform.up);
     }
 }
