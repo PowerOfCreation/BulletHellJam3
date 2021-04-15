@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 451759859}
   - component: {fileID: 451759862}
   - component: {fileID: 451759863}
+  - component: {fileID: 451759864}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -289,6 +290,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProjectile: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
+--- !u!114 &451759864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451759858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaa9231c80abdb48a328514de333689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneCamera: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
