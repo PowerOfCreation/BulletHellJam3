@@ -22,8 +22,7 @@ public class Projectile : MonoBehaviour
         {
             PoolingManager.Despawn(gameObject);
         }
-
-        if(transform.position.y < -ScreenBoundary.screenBoundary.y || transform.position.y > ScreenBoundary.screenBoundary.y)
+        else if(transform.position.y < -ScreenBoundary.screenBoundary.y || transform.position.y > ScreenBoundary.screenBoundary.y)
         {
             PoolingManager.Despawn(gameObject);
         }
