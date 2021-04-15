@@ -14,7 +14,7 @@ public class PoolingManager : MonoBehaviour
 {
     public static PoolingManager self;
 
-    private Dictionary<int, List<GameObject>> disabledGameObjects = new Dictionary<int, List<GameObject>>();
+    private Dictionary<int, Stack<GameObject>> disabledGameObjects = new Dictionary<int, Stack<GameObject>>();
 
     private Dictionary<int, int> countOfActiveGameObjects = new Dictionary<int, int>();
 
@@ -32,25 +32,36 @@ public class PoolingManager : MonoBehaviour
         }
     }
 
-    public static void Despawn(GameObject gameObject)
+    public static void Despawn(GameObject gameObjectToDespawn)
     {
-        int gameObjectInstance = self.activeGameObjects[gameObject];
+        int gameObjectInstance = self.activeGameObjects[gameObjectToDespawn];
 
-        gameObject.SetActive(false);
-        gameObject.transform.SetParent(self.transform);
+        gameObjectToDespawn.SetActive(false);
+        gameObjectToDespawn.transform.SetParent(self.transform);
 
         self.countOfActiveGameObjects[gameObjectInstance]--;
-        self.activeGameObjects.Remove(gameObject);
+        self.activeGameObjects.Remove(gameObjectToDespawn);
+        self.disabledGameObjects[gameObjectInstance].Push(gameObjectToDespawn);
     }
 
-    public static GameObject Spawn(GameObject gameObject, Transform parent)
+    public static GameObject Spawn(GameObject gameObject, Vector3 position)
+    {
+        GameObject spawnedGameObject = Spawn(gameObject);
+        spawnedGameObject.transform.position = position;
+
+        return spawnedGameObject;
+    }
+
+
+    public static GameObject Spawn(GameObject gameObject, Transform parent = null)
     {
         int gameObjectInstance = gameObject.GetInstanceID();
 
         if(!self.disabledGameObjects[gameObjectInstance].Any()) RefillPool(gameObject, self.countOfActiveGameObjects[gameObjectInstance]);
 
-        GameObject pooledGameObject = self.disabledGameObjects[gameObjectInstance][0];
+        GameObject pooledGameObject = self.disabledGameObjects[gameObjectInstance].Pop();
         pooledGameObject.transform.SetParent(parent);
+        pooledGameObject.transform.localPosition = Vector3.zero;
         pooledGameObject.gameObject.SetActive(true);
 
         self.countOfActiveGameObjects[gameObjectInstance]++;
@@ -61,28 +72,26 @@ public class PoolingManager : MonoBehaviour
 
     public static void RefillPool(GameObject gameObject, int amountToAdd = 50)
     {
-        List<GameObject> spawnedGameObjects = new List<GameObject>(amountToAdd);
+        int gameObjectInstance = gameObject.GetInstanceID();
+
+        Stack<GameObject> spawnedGameObjects = new Stack<GameObject>(amountToAdd);
 
         for (int i = 0; i < amountToAdd; i++)
         {
-            spawnedGameObjects.Add(GameObject.Instantiate(gameObject, self.transform));
+            GameObject spawnedGameObject = GameObject.Instantiate(gameObject, self.transform);
+            spawnedGameObject.SetActive(false);
+            spawnedGameObjects.Push(spawnedGameObject);
         }
 
-        self.disabledGameObjects[gameObject.GetInstanceID()].Concat(spawnedGameObjects);
+        self.disabledGameObjects[gameObject.GetInstanceID()] = spawnedGameObjects;
     }
 
     public static void AddPrefabToPooling(GameObject gameObject, int amountToBuffer = 10)
     {
         int gameObjectInstance = gameObject.GetInstanceID();
         
-        List<GameObject> spawnedGameObjects = new List<GameObject>(amountToBuffer);
+        RefillPool(gameObject, amountToBuffer);
 
-        for (int i = 0; i < amountToBuffer; i++)
-        {
-            spawnedGameObjects.Add(GameObject.Instantiate(gameObject, self.transform));
-        }
-
-        self.disabledGameObjects[gameObjectInstance] = spawnedGameObjects;
         self.countOfActiveGameObjects[gameObjectInstance] = 0;
     }
 }
