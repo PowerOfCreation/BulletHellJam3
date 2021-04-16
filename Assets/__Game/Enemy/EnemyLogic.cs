@@ -39,16 +39,18 @@ public class EnemyLogic : MonoBehaviour
             }
             else
             {
-                transform.position += transform.up * Time.deltaTime * speed;
+                transform.position += (Player.self.transform.position - transform.position).normalized * Time.deltaTime * speed;
             }
         }
     }
 
     void Fire()
     {
-        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize(transform.up);
-        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize((Quaternion.AngleAxis(15, transform.forward) * transform.up));
-        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize((Quaternion.AngleAxis(-15, transform.forward) * transform.up));
+        Vector3 directionToPlayer = (Player.self.transform.position - transform.position);
+
+        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize(directionToPlayer);
+        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize((Quaternion.AngleAxis(15, transform.forward) * directionToPlayer));
+        PoolingManager.Spawn(projectilePrefab, transform.position).GetComponent<Projectile>().Initialize((Quaternion.AngleAxis(-15, transform.forward) * directionToPlayer));
 
         isCharging = false;
         animator.SetBool(chargingHash, false);

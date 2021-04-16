@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundClips:
   - clip: {fileID: 8300000, guid: 776caef064ee9b1458ea6dee1e049e1d, type: 3}
-    volumeRange: {x: 0.7, y: 0.9}
+    volumeRange: {x: 0.9, y: 1}
