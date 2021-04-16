@@ -10,7 +10,7 @@ public class EnemyShoot : MonoBehaviour
 
     public GameObject projectilePrefab;
 
-    void Update()
+    /*void Update()
     {
         if(Time.time >= nextTimeToFire)
         {
@@ -18,7 +18,7 @@ public class EnemyShoot : MonoBehaviour
 
             Fire();
         }
-    }
+    }*/
 
     void Fire()
     {

@@ -23,7 +23,12 @@ public class Projectile : MonoBehaviour
         ProjectileManager.self.projectiles.Remove(this);
     }
 
-    public void Initialize(Vector3 velocity, bool isPlayerOwned = false)
+    public void Initialize(Vector3 velocity)
+    {
+        this.velocity = velocity.normalized;
+    }
+
+    public void Initialize(Vector3 velocity, bool isPlayerOwned)
     {
         this.velocity = velocity.normalized;
         this.isPlayerOwned = isPlayerOwned;
