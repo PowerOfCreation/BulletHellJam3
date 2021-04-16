@@ -32,7 +32,7 @@ public class PlayerShoot : MonoBehaviour
     private void Fire()
     {
         GameObject spawnedProjectile = PoolingManager.Spawn(playerProjectile, transform.position);
-        spawnedProjectile.GetComponent<Projectile>().Initialize(transform.up);
+        spawnedProjectile.GetComponent<Projectile>().Initialize(Vector3.up);
         soundEffect.Play(audioSource);
     }
 }

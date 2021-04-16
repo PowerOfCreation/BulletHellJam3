@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 451759859}
   - component: {fileID: 451759862}
   - component: {fileID: 451759863}
-  - component: {fileID: 451759864}
   - component: {fileID: 451759865}
   - component: {fileID: 451759866}
   m_Layer: 0
@@ -420,18 +419,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProjectile: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
   soundEffect: {fileID: 11400000, guid: b6919ee7ff5c97647a3f2a809f06ec3d, type: 2}
---- !u!114 &451759864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 451759858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aaa9231c80abdb48a328514de333689, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &451759865
 MonoBehaviour:
   m_ObjectHideFlags: 0
