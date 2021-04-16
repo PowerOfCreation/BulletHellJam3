@@ -96,5 +96,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  radius: 0.2
+  radius: 0.06
   isPlayerOwned: 0

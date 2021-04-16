@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class EnemyHealth : Health
+public class PlayerHealth : Health
 {
-    public SoundEffect destroyedSoundEffect;
-
     public override void Damage(int amount)
     {
         health -= amount;
 
         if(health <= 0)
         {
-            destroyedSoundEffect.Play(GlobalAudioSource.audioSource);
-            PoolingManager.Despawn(gameObject);
+            Debug.Log("hi");
+            SceneManager.LoadScene(0);
         }
     }
 }

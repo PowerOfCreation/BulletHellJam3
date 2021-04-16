@@ -34,6 +34,7 @@ public class ProjectileManager : MonoBehaviour
                     if(results[j].gameObject != Player.self.gameObject)
                     {
                         results[j].GetComponent<IDamageable>()?.Damage(1);
+                        PoolingManager.Despawn(projectiles[i].gameObject);
                     }
                 }
                 else
@@ -41,6 +42,7 @@ public class ProjectileManager : MonoBehaviour
                     if(results[j].gameObject == Player.self.gameObject)
                     {
                         results[j].GetComponent<IDamageable>()?.Damage(1);
+                        PoolingManager.Despawn(projectiles[i].gameObject);
                     }
                 }
             }
