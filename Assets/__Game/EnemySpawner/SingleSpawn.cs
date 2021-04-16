@@ -35,6 +35,6 @@ public class SingleSpawn : SpawnEvent
 
     public override void Spawn()
     {
-        PoolingManager.Spawn(enemyDifficultyEntry.prefab, new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(3, 5)));
+        PoolingManager.Spawn(enemyDifficultyEntry.prefab, new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(5, 6)));
     }
 }

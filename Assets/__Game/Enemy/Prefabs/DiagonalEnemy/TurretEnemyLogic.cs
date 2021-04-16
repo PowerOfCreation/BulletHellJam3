@@ -14,6 +14,10 @@ public class TurretEnemyLogic : MonoBehaviour
 
     private float angle = 0;
 
+    private float targetY;
+
+    private float moveInSpeed = 1f;
+
     void OnDisable()
     {
         animator.SetBool(chargingHash, false);
@@ -22,14 +26,28 @@ public class TurretEnemyLogic : MonoBehaviour
 
     void Start()
     {
-        isCharging = true;
-        animator.SetBool(chargingHash, true);
+        targetY = Random.Range(1f, 4.5f);
     }
 
     void Update()
     {
-        transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized * Time.deltaTime * 0.2f;
-        angle += Time.deltaTime * 2.5f;
+        if(transform.position.y > targetY)
+        {
+            transform.position += new Vector3(0, -1, 0) * Time.deltaTime * moveInSpeed;
+
+            if(transform.position.y <= targetY)
+            {
+                targetY = 10f;
+
+                isCharging = true;
+                animator.SetBool(chargingHash, true);
+            }
+        }
+        else
+        {
+            transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized * Time.deltaTime * 0.2f;
+            angle += Time.deltaTime * 2.5f;
+        }
     }
 
     void Awake()
