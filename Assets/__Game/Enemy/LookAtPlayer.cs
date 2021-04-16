@@ -7,7 +7,7 @@ public class LookAtPlayer : MonoBehaviour
     void Update()
     {
         Vector3 direction = Player.self.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }

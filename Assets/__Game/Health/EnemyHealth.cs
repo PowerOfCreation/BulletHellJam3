@@ -6,6 +6,6 @@ public class EnemyHealth : Health
 {
     public override void Damage(int amount)
     {
-        Destroy(gameObject);
+        PoolingManager.Despawn(gameObject);
     }
 }

@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
 
     public float radius = 0.5f;
 
+    public bool isPlayerOwned = false;
+
     public void OnEnable()
     {
         ProjectileManager.self.projectiles.Add(this);
@@ -21,9 +23,10 @@ public class Projectile : MonoBehaviour
         ProjectileManager.self.projectiles.Remove(this);
     }
 
-    public void SetVelocity(Vector3 velocity)
+    public void Initialize(Vector3 velocity, bool isPlayerOwned = false)
     {
         this.velocity = velocity.normalized;
+        this.isPlayerOwned = isPlayerOwned;
     }
 
     void Update()

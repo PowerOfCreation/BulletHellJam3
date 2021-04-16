@@ -83,7 +83,7 @@ public class PoolingManager : MonoBehaviour
             spawnedGameObjects.Push(spawnedGameObject);
         }
 
-        self.disabledGameObjects[gameObject.GetInstanceID()] = spawnedGameObjects;
+        self.disabledGameObjects[gameObjectInstance] = spawnedGameObjects;
     }
 
     public static void AddPrefabToPooling(GameObject gameObject, int amountToBuffer = 10)

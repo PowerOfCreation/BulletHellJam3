@@ -29,7 +29,20 @@ public class ProjectileManager : MonoBehaviour
 
             for (int j = 0; j < count; j++)
             {
-                results[j].GetComponent<IDamageable>()?.Damage(1);
+                if(projectiles[i].isPlayerOwned)
+                {
+                    if(results[j].gameObject != Player.self.gameObject)
+                    {
+                        results[j].GetComponent<IDamageable>()?.Damage(1);
+                    }
+                }
+                else
+                {
+                    if(results[j].gameObject == Player.self.gameObject)
+                    {
+                        results[j].GetComponent<IDamageable>()?.Damage(1);
+                    }
+                }
             }
         }
     }
