@@ -11,7 +11,6 @@ public class PlayerHealth : Health
 
         if(health <= 0)
         {
-            Debug.Log("hi");
             SceneManager.LoadScene(0);
         }
     }

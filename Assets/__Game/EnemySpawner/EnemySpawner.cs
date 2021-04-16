@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-
-    public List<Transform> spawnPositions = new List<Transform>();
+    public List<GameObject> enemyPrefabs;
 
     public float spawnInterval = .5f;
 
@@ -26,11 +24,14 @@ public class EnemySpawner : MonoBehaviour
 
     public void Start()
     {
-        PoolingManager.AddPrefabToPooling(enemyPrefab);
+        for (int i = 0; i < enemyPrefabs.Count; i++)
+        {
+            PoolingManager.AddPrefabToPooling(enemyPrefabs[i]);
+        }
     }
 
     void Spawn()
     {
-        PoolingManager.Spawn(enemyPrefab, spawnPositions[lastSpawnPosition++ %  spawnPositions.Count].position);
+        PoolingManager.Spawn(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(3, 5)));
     }
 }
