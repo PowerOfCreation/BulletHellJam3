@@ -60,6 +60,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7919333678832571753, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
+      propertyPath: radius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919333678832571753, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
       propertyPath: isPlayerOwned
       value: 1
       objectReference: {fileID: 0}

@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 1760538609350542123}
   - component: {fileID: 1760538609350542120}
   - component: {fileID: 1760538609350542121}
-  - component: {fileID: 1760538609350542102}
-  - component: {fileID: 1609344933141104626}
   - component: {fileID: 8628295015491393659}
+  - component: {fileID: 6978087890278451791}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -128,33 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9400aefe0c55cdd429fae8503f6a1374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1760538609350542102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760538609350542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fae2519542ffc4c9bf8790b393605b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootingInterval: 0.5
-  projectilePrefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
---- !u!114 &1609344933141104626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760538609350542127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b891f2046bb0b04a97e12821a1bd7ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
+  destroyedSoundEffect: {fileID: 11400000, guid: a80d6681af33ff9488f29a675cb0e0d6, type: 2}
 --- !u!95 &8628295015491393659
 Animator:
   serializedVersion: 3
@@ -174,3 +147,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6978087890278451791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760538609350542127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5754880a75742cb4b9b4c4f3a5e82997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
+  speed: 1
+  distanceNeededToShoot: 5
