@@ -28,7 +28,7 @@ public class TurretEnemyLogic : MonoBehaviour
 
     void Update()
     {
-        transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized * Time.deltaTime * 1f;
+        transform.position += new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0).normalized * Time.deltaTime * 0.2f;
         angle += Time.deltaTime * 2.5f;
     }
 
