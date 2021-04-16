@@ -4,34 +4,62 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<GameObject> enemyPrefabs;
+    public List<EnemyDifficultyEntry> enemyDifficultyEntries = new List<EnemyDifficultyEntry>();
 
-    public float spawnInterval = .5f;
+    private List<SpawnEvent> spawnEvents = new List<SpawnEvent>();
 
-    private float nextTimeToSpawn = 0f;
+    public float difficulty = 0f;
+    public float difficultyIncreasePerSecond = 1f;
 
-    int lastSpawnPosition = 0;
+    public float nextEventInterval = 1f;
+    public float nextEventAtTime = 0.5f;
+
+    SpawnEvent[] possibleSpawnEvents = new SpawnEvent[50];
 
     void Update()
     {
-        if(Time.time >= nextTimeToSpawn)
-        {
-            nextTimeToSpawn = Time.time + spawnInterval;
+        difficulty += difficultyIncreasePerSecond * Time.deltaTime;
 
-            Spawn();
+        if(Time.time >= nextEventAtTime)
+        {
+            nextEventAtTime = Time.time + nextEventInterval;
+
+            float totalSpawnPriority = 0f;
+            int possibleSpawnEventsCount = 0;
+
+            for (int i = 0; i < spawnEvents.Count; i++)
+            {
+                float spawnPriority = spawnEvents[i].GetSpawnPriority(difficulty);
+                
+                if(spawnPriority >= 0.1f)
+                {
+                    totalSpawnPriority += spawnPriority;
+                    possibleSpawnEvents[possibleSpawnEventsCount] = spawnEvents[i];
+                    possibleSpawnEventsCount++;
+                }
+            }
+            
+            float randomlyDecidedSpawn = Random.Range(0, totalSpawnPriority);
+            totalSpawnPriority = 0f;
+
+            for (int i = 0; i < possibleSpawnEventsCount; i++)
+            {
+                totalSpawnPriority += possibleSpawnEvents[i].GetSpawnPriority(difficulty);
+
+                if(randomlyDecidedSpawn <= totalSpawnPriority)
+                {
+                    possibleSpawnEvents[i].Spawn();
+                }
+            }
         }
     }
 
     public void Start()
     {
-        for (int i = 0; i < enemyPrefabs.Count; i++)
+        for (int i = 0; i < enemyDifficultyEntries.Count; i++)
         {
-            PoolingManager.AddPrefabToPooling(enemyPrefabs[i]);
+            PoolingManager.AddPrefabToPooling(enemyDifficultyEntries[i].prefab);
+            spawnEvents.Add(new SingleSpawn(enemyDifficultyEntries[i]));
         }
-    }
-
-    void Spawn()
-    {
-        PoolingManager.Spawn(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(3, 5)));
     }
 }

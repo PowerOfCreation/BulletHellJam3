@@ -447,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  playerHitEffect: {fileID: 11400000, guid: 027229fd4bece6b4ba2c9a7d6d757465, type: 2}
 --- !u!114 &451759865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,11 +615,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed949c78b9bb24d4eab6afb1e0d395c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 8693445253580428171, guid: 82e9e5cf64ea2f24e90a0ca48fa332c0, type: 3}
-  - {fileID: 1365316415551177423, guid: a79aa12dbf39c0e40a0d18a2205d8b1a, type: 3}
-  - {fileID: 1760538609350542127, guid: dbfc624392fb625459a1162e4ccb5da9, type: 3}
-  spawnInterval: 0.5
+  enemyDifficultyEntries:
+  - {fileID: 11400000, guid: 7bbf0e34eb941cb40ac008cfe95269ab, type: 2}
+  - {fileID: 11400000, guid: c5a251d7844fd0b44bce7512eab62b4d, type: 2}
+  - {fileID: 11400000, guid: 49d8b5b363ab5f544871f4ef35b1b408, type: 2}
+  difficulty: 0
+  difficultyIncreasePerSecond: 1
+  nextEventInterval: 1
+  nextEventAtTime: 0.5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

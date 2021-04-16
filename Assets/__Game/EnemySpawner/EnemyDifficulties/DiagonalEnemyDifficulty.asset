@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cb557a24ce64445865ff332db29390, type: 3}
+  m_Name: DiagonalEnemyDifficulty
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1365316415551177423, guid: a79aa12dbf39c0e40a0d18a2205d8b1a, type: 3}
+  priorityAtDifficulties:
+  - difficulty: 10
+    priority: 1
+  - difficulty: 15
+    priority: 2
+  - difficulty: 20
+    priority: 3
+  - difficulty: 25
+    priority: 4
+  - difficulty: 30
+    priority: 5
