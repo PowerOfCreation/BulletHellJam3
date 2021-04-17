@@ -433,7 +433,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProjectile: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
+  upgradedProjectile: {fileID: 8023780270648985801, guid: 3fc6df7579dbc8045b5779d6476c5ff9, type: 3}
   soundEffect: {fileID: 11400000, guid: b6919ee7ff5c97647a3f2a809f06ec3d, type: 2}
+  upgradeLevel: 0
+  upgradeDuration: 10
+  upgradeExpiresAt: 10
 --- !u!114 &451759864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,7 +817,9 @@ MonoBehaviour:
   - prefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
     count: 10000
   - prefab: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
-    count: 50
+    count: 200
+  - prefab: {fileID: 8023780270648985801, guid: 3fc6df7579dbc8045b5779d6476c5ff9, type: 3}
+    count: 200
 --- !u!1 &853690632
 GameObject:
   m_ObjectHideFlags: 0

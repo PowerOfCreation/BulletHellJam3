@@ -116,6 +116,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   destroyedSoundEffect: {fileID: 11400000, guid: a80d6681af33ff9488f29a675cb0e0d6, type: 2}
+  pickups:
+  - {fileID: 1846281267568612210, guid: 2b74c04d1b87fd446a2d168fc1d47d4a, type: 3}
+  chance: 0.1
 --- !u!95 &3192183626333182306
 Animator:
   serializedVersion: 3
@@ -148,4 +151,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
-  speed: 1
