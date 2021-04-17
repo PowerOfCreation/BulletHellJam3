@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class SpawnEvent
 {
+    public EnemyDifficultyEntry enemyDifficultyEntry;
+    
     public abstract float GetSpawnPriority(float currentDifficulty);
     public abstract void Spawn();
 }

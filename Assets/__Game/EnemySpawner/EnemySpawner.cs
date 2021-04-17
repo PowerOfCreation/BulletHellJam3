@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 float spawnPriority = spawnEvents[i].GetSpawnPriority(difficulty);
                 
-                if(spawnPriority >= 0.1f)
+                if(spawnPriority >= 0.01f)
                 {
                     totalSpawnPriority += spawnPriority;
                     possibleSpawnEvents[possibleSpawnEventsCount] = spawnEvents[i];
@@ -39,7 +39,8 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
             
-            float randomlyDecidedSpawn = Random.Range(0, totalSpawnPriority);
+            float randomlyDecidedSpawn = Random.Range(0f, totalSpawnPriority);
+
             totalSpawnPriority = 0f;
 
             for (int i = 0; i < possibleSpawnEventsCount; i++)
@@ -49,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
                 if(randomlyDecidedSpawn <= totalSpawnPriority)
                 {
                     possibleSpawnEvents[i].Spawn();
+                    break;
                 }
             }
         }
@@ -60,6 +62,21 @@ public class EnemySpawner : MonoBehaviour
         {
             PoolingManager.AddPrefabToPooling(enemyDifficultyEntries[i].prefab);
             spawnEvents.Add(new SingleSpawn(enemyDifficultyEntries[i]));
+        }
+
+        for (int i = 0; i < enemyDifficultyEntries.Count; i++)
+        {
+            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 0.5f, 4));
+        }
+
+        for (int i = 0; i < enemyDifficultyEntries.Count; i++)
+        {
+            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 0.8f, 6));
+        }
+
+        for (int i = 0; i < enemyDifficultyEntries.Count; i++)
+        {
+            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 1, 8));
         }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8693445253580428171, guid: 82e9e5cf64ea2f24e90a0ca48fa332c0, type: 3}
   priorityAtDifficulties:
-  - difficulty: 0
+  - difficulty: 1
     priority: 1
   - difficulty: 120
     priority: 0

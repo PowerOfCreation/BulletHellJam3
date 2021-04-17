@@ -811,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingManagerEntries:
   - prefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
-    count: 200
+    count: 10000
   - prefab: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
     count: 50
 --- !u!1 &853690632

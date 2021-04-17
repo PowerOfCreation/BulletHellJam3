@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SingleSpawn : SpawnEvent
 {
-    public EnemyDifficultyEntry enemyDifficultyEntry;
-
     public SingleSpawn(EnemyDifficultyEntry enemyDifficultyEntry)
     {
         this.enemyDifficultyEntry = enemyDifficultyEntry;
@@ -35,6 +33,6 @@ public class SingleSpawn : SpawnEvent
 
     public override void Spawn()
     {
-        PoolingManager.Spawn(enemyDifficultyEntry.prefab, new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(5, 6)));
+        PoolingManager.Spawn(enemyDifficultyEntry.prefab, new Vector3(Random.Range(-ScreenBoundary.screenBoundary.x, ScreenBoundary.screenBoundary.x), Random.Range(5f, 9.7f)));
     }
 }

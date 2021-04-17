@@ -26,7 +26,7 @@ public class TurretEnemyLogic : MonoBehaviour
 
     void Start()
     {
-        targetY = Random.Range(1f, 4.5f);
+        targetY = transform.position.y - 5f;
     }
 
     void Update()
