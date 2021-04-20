@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class NukeParentTransformHolder : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class NukeParentTransformHolder : MonoBehaviour
     public float decreasePerSecond = 2f;
 
     public bool isCharged = false;
+
+    public List<GameObject> nukeableGameObjects = new List<GameObject>();
 
     void Awake()
     {
@@ -48,10 +51,32 @@ public class NukeParentTransformHolder : MonoBehaviour
         }
     }
 
-    public void Charge()
+    public bool Charge()
     {
+        if(isCharged) return false;
+
         currentCharge += chargePerSecond * Time.deltaTime;
         nextDecreaseAtTime = Time.time + decreaseGrowthAfterSeconds;
+        UpdateSpriteRenderer();
+
+        return true;
+    }
+
+    public void Nuke()
+    {
+        if(!isCharged) return;
+
+        isCharged = false;
+        currentCharge = 0f;
+
+        var enemyHealths = EnemyHolder.self.GetComponentsInChildren<EnemyHealth>();
+
+        for(int i = 0; i < enemyHealths.Length; i++)
+        {
+            enemyHealths[i].Damage(100);
+        }
+
+        nukeChargedAnimator.SetBool("isCharged", false);
         UpdateSpriteRenderer();
     }
 

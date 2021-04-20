@@ -44,7 +44,7 @@ public class CircleSpawn : SpawnEvent
 
         for (int i = 0; i < amount; i++)
         {
-            PoolingManager.Spawn(enemyDifficultyEntry.prefab, centerPoint + new Vector3(Mathf.Cos(rotationPerEnemy * i), Mathf.Sin(rotationPerEnemy * i)).normalized * radius);
+            PoolingManager.Spawn(enemyDifficultyEntry.prefab, centerPoint + new Vector3(Mathf.Cos(rotationPerEnemy * i), Mathf.Sin(rotationPerEnemy * i)).normalized * radius, EnemyHolder.self.transform);
         }
     }
 }

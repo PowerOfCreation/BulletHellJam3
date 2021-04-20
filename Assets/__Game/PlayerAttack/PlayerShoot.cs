@@ -30,6 +30,8 @@ public class PlayerShoot : MonoBehaviour
 
     void Update()
     {
+        if(ChargeNuke.isCharging) return;
+        
         if(Input.GetButton("Fire1") && Time.time >= nextTimeFireReady)
         {
             nextTimeFireReady = Time.time + shootInterval;

@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(ChargeNuke.isCharging) return;
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 

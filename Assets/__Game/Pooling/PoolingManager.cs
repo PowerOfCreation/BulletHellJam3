@@ -44,14 +44,13 @@ public class PoolingManager : MonoBehaviour
         self.disabledGameObjects[gameObjectInstance].Push(gameObjectToDespawn);
     }
 
-    public static GameObject Spawn(GameObject gameObject, Vector3 position)
+    public static GameObject Spawn(GameObject gameObject, Vector3 position, Transform parent = null)
     {
-        GameObject spawnedGameObject = Spawn(gameObject);
+        GameObject spawnedGameObject = Spawn(gameObject, parent);
         spawnedGameObject.transform.position = position;
 
         return spawnedGameObject;
     }
-
 
     public static GameObject Spawn(GameObject gameObject, Transform parent = null)
     {
