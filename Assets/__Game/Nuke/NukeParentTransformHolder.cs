@@ -10,7 +10,8 @@ public class NukeParentTransformHolder : MonoBehaviour
     private Animator animator;
     private Image image;
 
-    public List<Sprite> sprites;
+    public Image nukeChargedImage;
+    public Animator nukeChargedAnimator;
 
     public float chargePerSecond = 1;
     public float maxCharge = 10;
@@ -34,19 +35,23 @@ public class NukeParentTransformHolder : MonoBehaviour
 
     public void Update()
     {
-        if(!isCharged && currentCharge > 0 && nextDecreaseAtTime < Time.time)
+        if(!isCharged && currentCharge > 0f && nextDecreaseAtTime < Time.time)
         {
-            currentCharge -= decreasePerSecond * Time.time;
+            currentCharge -= decreasePerSecond * Time.deltaTime;
+
             if(currentCharge < 0f)
             {
                 currentCharge = 0f;
             }
+
+            UpdateSpriteRenderer();
         }
     }
 
     public void Charge()
     {
         currentCharge += chargePerSecond * Time.deltaTime;
+        nextDecreaseAtTime = Time.time + decreaseGrowthAfterSeconds;
         UpdateSpriteRenderer();
     }
 
@@ -55,22 +60,10 @@ public class NukeParentTransformHolder : MonoBehaviour
         if(currentCharge >= maxCharge)
         {
             isCharged = true;
+            nukeChargedAnimator.SetBool("isCharged", true);
         }
-        
-        nextDecreaseAtTime = Time.time + decreaseGrowthAfterSeconds;
 
-        float sum = 0f;
-
-        for (int i = 0; i < sprites.Count; i++)
-        {
-            sum += maxCharge / sprites.Count;
-
-            if(currentCharge <= sum)
-            {
-                image.sprite = sprites[i];
-                break;
-            }
-        }
+        nukeChargedImage.fillAmount = currentCharge / maxCharge;
     }
 
     float positionX;
