@@ -14,5 +14,11 @@ public abstract class Pickup : MonoBehaviour
     }
 
     public abstract void OnPickup(Player player);
+
+    void Update()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime, 0);
+        if(transform.position.y < -5) Destroy(gameObject);
+    }
 }
 

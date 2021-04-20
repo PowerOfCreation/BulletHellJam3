@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NukeParentTransformHolder : MonoBehaviour
 {
     public static NukeParentTransformHolder self;
 
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
+    private Image image;
 
     public List<Sprite> sprites;
 
@@ -27,7 +28,8 @@ public class NukeParentTransformHolder : MonoBehaviour
     {
         self = this;
         animator = GetComponentInChildren<Animator>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        image = GetComponentInChildren<Image>();
+        positionX = transform.position.x;
     }
 
     public void Update()
@@ -65,9 +67,27 @@ public class NukeParentTransformHolder : MonoBehaviour
 
             if(currentCharge <= sum)
             {
-                spriteRenderer.sprite = sprites[i];
+                image.sprite = sprites[i];
                 break;
             }
         }
+    }
+
+    float positionX;
+
+    void Start()
+    {
+        AdjustPositionToScreen();
+        ScreenBoundary.screenChanged += AdjustPositionToScreen;
+    }
+
+    void AdjustPositionToScreen()
+    {
+        transform.position = new Vector3(((((17.8f / (Camera.main.orthographicSize * (16f/9f) * 2f)) -1f) * 2f) + 1f)  * positionX, transform.position.y, 0);
+    }
+
+    void OnDestroy()
+    {
+        ScreenBoundary.screenChanged -= AdjustPositionToScreen;
     }
 }
