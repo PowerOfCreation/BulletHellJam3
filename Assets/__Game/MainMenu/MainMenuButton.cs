@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class MainMenuButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Click()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        HowToPlayHolder.Hide();
+        CreditsHolder.Hide();
+        OptionsHolder.Hide();
+        MainMenuHolder.Show();
     }
 }

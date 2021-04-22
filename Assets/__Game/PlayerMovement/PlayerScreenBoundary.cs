@@ -8,7 +8,7 @@ public class PlayerScreenBoundary : MonoBehaviour
     private float spriteWidth;
     private float spriteHeight;
 
-    private float bottomBorder = 5f - 3.85f;
+    private float bottomBorder = 5f - 3.3f;
 
     void Awake()
     {

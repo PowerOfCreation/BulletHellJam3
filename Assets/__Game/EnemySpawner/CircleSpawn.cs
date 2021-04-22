@@ -33,7 +33,7 @@ public class CircleSpawn : SpawnEvent
             }
         }
 
-        return (highestPriority / ((float) amount / 2f));
+        return (highestPriority / ((float) amount * 2f));
     }
 
     public override void Spawn()
