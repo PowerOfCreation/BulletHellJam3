@@ -71,12 +71,12 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < enemyDifficultyEntries.Count; i++)
         {
-            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 0.8f, 6));
+            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 0.8f, 6, 4f));
         }
 
         for (int i = 0; i < enemyDifficultyEntries.Count; i++)
         {
-            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 1, 8));
+            spawnEvents.Add(new CircleSpawn(enemyDifficultyEntries[i], 1, 8, 8f));
         }
     }
 }

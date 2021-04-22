@@ -23,7 +23,7 @@ public class CircleSpawn : SpawnEvent
 
         for (int i = 0; i < enemyDifficultyEntry.priorityAtDifficulties.Count; i++)
         {
-            if(currentDifficulty < enemyDifficultyEntry.priorityAtDifficulties[i].difficulty * amount * 2f)
+            if(currentDifficulty < enemyDifficultyEntry.priorityAtDifficulties[i].difficulty * amount * 2f * modifier)
             {
                 break;
             }

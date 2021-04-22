@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5754880a75742cb4b9b4c4f3a5e82997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1055992876243190355, guid: d5df78e63f991344fa681ee5d74a4bcf, type: 3}
+  projectilePrefab: {fileID: 4897417591975035157, guid: 73ee848e41de00c488da250b0382e780, type: 3}
   speed: 1
   distanceNeededToShoot: 5

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : Health
 {
     public SoundEffect playerHitEffect;
+    public SoundEffect playerDeathEffect;
 
     public List<Sprite> damageSprites = new List<Sprite>();
 
@@ -24,6 +25,7 @@ public class PlayerHealth : Health
 
         if(health <= 0)
         {
+            playerDeathEffect.Play(GlobalAudioSource.audioSource);            
             PauseMenu.Show(true);
         }
         else

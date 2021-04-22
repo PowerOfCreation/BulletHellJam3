@@ -1460,6 +1460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   playerHitEffect: {fileID: 11400000, guid: 027229fd4bece6b4ba2c9a7d6d757465, type: 2}
+  playerDeathEffect: {fileID: 11400000, guid: 41f9bb739689e664fbc54d9f1c79eea1, type: 2}
   damageSprites:
   - {fileID: 21300000, guid: bdc3eafcc9caf0541aa9d4f42ec27177, type: 3}
   - {fileID: 21300000, guid: 00098f23c8a83f74b80a7155bdf06812, type: 3}
@@ -1662,7 +1663,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6e281cdb43090d4fbdab5cb5843f6c3, type: 2}
   difficulty: 0
   difficultyIncreasePerSecond: 1
-  nextEventInterval: 1
+  nextEventInterval: 1.2
   nextEventAtTime: 0.5
 --- !u!1 &519420028
 GameObject:
@@ -2894,6 +2895,8 @@ MonoBehaviour:
     count: 200
   - prefab: {fileID: 8023780270648985801, guid: 3fc6df7579dbc8045b5779d6476c5ff9, type: 3}
     count: 200
+  - prefab: {fileID: 4897417591975035157, guid: 73ee848e41de00c488da250b0382e780, type: 3}
+    count: 1000
 --- !u!1 &853690632
 GameObject:
   m_ObjectHideFlags: 0

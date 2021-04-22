@@ -34,6 +34,8 @@ public class NukeParentTransformHolder : MonoBehaviour
 
     public List<GameObject> nukeableGameObjects = new List<GameObject>();
 
+    public float destructionTime;
+
     void Awake()
     {
         self = this;
@@ -66,6 +68,12 @@ public class NukeParentTransformHolder : MonoBehaviour
             }
 
             UpdateSpriteRenderer();
+        }
+
+        if(isCharged && Time.time >= destructionTime)
+        {
+            Player.self.GetComponent<PlayerHealth>().Damage(10000);
+            isCharged = false;
         }
     }
 
@@ -106,6 +114,7 @@ public class NukeParentTransformHolder : MonoBehaviour
         if(!isOnCooldown && currentCharge >= maxCharge)
         {
             isCharged = true;
+            destructionTime = Time.time + 10f;
             nukeChargedAnimator.SetBool("isCharged", true);
         }
 
