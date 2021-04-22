@@ -45,8 +45,6 @@ public class EnemySpawner : MonoBehaviour
 
             for (int i = 0; i < possibleSpawnEventsCount; i++)
             {
-                Debug.Log(possibleSpawnEvents[i].enemyDifficultyEntry.prefab + "" + possibleSpawnEvents[i].GetSpawnPriority(difficulty));
-
                 totalSpawnPriority += possibleSpawnEvents[i].GetSpawnPriority(difficulty);
 
                 if(randomlyDecidedSpawn <= totalSpawnPriority)
