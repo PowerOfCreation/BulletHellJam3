@@ -55,6 +55,11 @@ public class PlayerShoot : MonoBehaviour
         soundEffect.Play(audioSource);
     }
 
+    public void PlayerDisappear()
+    {
+        Player.self.gameObject.SetActive(false);
+    }
+
     private void FireBulletSpawnPosition(Vector3 position)
     {
         GameObject spawnedProjectile = PoolingManager.Spawn(playerProjectile, transform.position + position);

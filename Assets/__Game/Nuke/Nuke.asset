@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Nuke
   m_EditorClassIdentifier: 
   soundClips:
-  - clip: {fileID: 8300000, guid: 36450a9ddd94f3e45af6815558948cdc, type: 3}
+  - clip: {fileID: 8300000, guid: e9882e66c46cbbc46b31df5b0bdb11be, type: 3}
     volumeRange: {x: 0.9, y: 1}

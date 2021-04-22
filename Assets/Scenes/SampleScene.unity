@@ -1332,6 +1332,7 @@ GameObject:
   - component: {fileID: 451759867}
   - component: {fileID: 451759868}
   - component: {fileID: 451759869}
+  - component: {fileID: 451759870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1461,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  maxHealth: 0
   playerHitEffect: {fileID: 11400000, guid: 027229fd4bece6b4ba2c9a7d6d757465, type: 2}
   playerDeathEffect: {fileID: 11400000, guid: 41f9bb739689e664fbc54d9f1c79eea1, type: 2}
   damageSprites:
@@ -1615,6 +1617,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72275197b3a5bc54c994525fbb8f560d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &451759870
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451759858}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d045da6558766a5448985a4e54670de3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &511071053
 GameObject:
   m_ObjectHideFlags: 0

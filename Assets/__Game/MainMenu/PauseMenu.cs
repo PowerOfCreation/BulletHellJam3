@@ -28,18 +28,38 @@ public class PauseMenu : MonoBehaviour
         {
             if(isEnabled) Hide(); else Show();
         }
+
+        if(isGameOver)
+        {
+            if(GetComponent<CanvasGroup>().alpha < 0.95f)
+            {
+                GetComponent<CanvasGroup>().alpha += Time.deltaTime * 0.5f;
+            }
+            else
+            {
+                isEnabled = true;
+                Time.timeScale = 0f;
+                self.GetComponent<CanvasGroup>().alpha = 1f;
+                self.GetComponent<CanvasGroup>().interactable = true;
+                self.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            }
+        }
     }
 
     public static void Show(bool gameOver = false)
     {
         isGameOver = gameOver;
-        isEnabled = true;
-        Time.timeScale = 0f;
-        self.GetComponent<CanvasGroup>().alpha = 1f;
-        self.GetComponent<CanvasGroup>().interactable = true;
-        self.GetComponent<CanvasGroup>().blocksRaycasts = true;
-    
-        if(gameOver)
+
+        if(!isGameOver)
+        {
+            isEnabled = true;
+            Time.timeScale = 0f;
+            self.GetComponent<CanvasGroup>().alpha = 1f;
+            self.GetComponent<CanvasGroup>().interactable = true;
+            self.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
+        else
         {
             self.gameOverText.enabled = true;
         }

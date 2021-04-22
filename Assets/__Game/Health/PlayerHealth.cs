@@ -10,13 +10,6 @@ public class PlayerHealth : Health
 
     public List<Sprite> damageSprites = new List<Sprite>();
 
-    private int maxHealth;
-
-    void Awake()
-    {
-        maxHealth = health;
-    }
-
     public override void Damage(int amount)
     {
         health -= amount;
@@ -25,8 +18,12 @@ public class PlayerHealth : Health
 
         if(health <= 0)
         {
-            playerDeathEffect.Play(GlobalAudioSource.audioSource);            
+            GetComponent<Animator>().SetTrigger("explode");
+            playerDeathEffect.Play(GlobalAudioSource.audioSource);
+            GetComponent<PlayerMovement>().enabled = false;          
+            GetComponent<PlayerShoot>().enabled = false;          
             PauseMenu.Show(true);
+            GetComponent<PlayerHealth>().enabled = false;
         }
         else
         {
