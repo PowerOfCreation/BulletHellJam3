@@ -12,7 +12,7 @@ public class SingleSpawn : SpawnEvent
     public override float GetSpawnPriority(float currentDifficulty)
     {
         int indexOfHighestEntry = -1;
-        float highestPriority = 0;
+        float highestPriority = 0f;
 
         for (int i = 0; i < enemyDifficultyEntry.priorityAtDifficulties.Count; i++)
         {

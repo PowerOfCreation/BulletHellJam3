@@ -25,6 +25,10 @@ public class NukeParentTransformHolder : MonoBehaviour
     public float decreasePerSecond = 2f;
 
     public bool isCharged = false;
+    public bool isOnCooldown = false;
+
+    public float cooldownInSeconds = 10f;
+    public float cooldownEndsAtTime = 0f;
 
     public List<GameObject> nukeableGameObjects = new List<GameObject>();
 
@@ -38,13 +42,25 @@ public class NukeParentTransformHolder : MonoBehaviour
 
     public void Update()
     {
-        if(!isCharged && currentCharge > 0f && nextDecreaseAtTime < Time.time)
+        if(!isOnCooldown && !isCharged && currentCharge > 0f && nextDecreaseAtTime < Time.time)
         {
             currentCharge -= decreasePerSecond * Time.deltaTime;
 
             if(currentCharge < 0f)
             {
                 currentCharge = 0f;
+            }
+
+            UpdateSpriteRenderer();
+        }
+        else if(isOnCooldown)
+        {
+            currentCharge -= chargePerSecond * Time.deltaTime;
+
+            if(currentCharge <= 0f)
+            {
+                currentCharge = 0f;
+                isOnCooldown = false;
             }
 
             UpdateSpriteRenderer();
@@ -67,13 +83,14 @@ public class NukeParentTransformHolder : MonoBehaviour
         if(!isCharged) return;
 
         isCharged = false;
-        currentCharge = 0f;
+        isOnCooldown = true;
+        cooldownEndsAtTime = Time.time + cooldownInSeconds;
 
         var enemyHealths = EnemyHolder.self.GetComponentsInChildren<EnemyHealth>();
 
         for(int i = 0; i < enemyHealths.Length; i++)
         {
-            enemyHealths[i].Damage(100);
+            enemyHealths[i].Damage(10000);
         }
 
         nukeChargedAnimator.SetBool("isCharged", false);
@@ -82,7 +99,7 @@ public class NukeParentTransformHolder : MonoBehaviour
 
     public void UpdateSpriteRenderer()
     {
-        if(currentCharge >= maxCharge)
+        if(!isOnCooldown && currentCharge >= maxCharge)
         {
             isCharged = true;
             nukeChargedAnimator.SetBool("isCharged", true);

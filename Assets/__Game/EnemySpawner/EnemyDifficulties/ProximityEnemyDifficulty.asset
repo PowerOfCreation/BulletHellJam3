@@ -16,11 +16,11 @@ MonoBehaviour:
   priorityAtDifficulties:
   - difficulty: 30
     priority: 1
-  - difficulty: 35
-    priority: 2
   - difficulty: 40
-    priority: 3
-  - difficulty: 45
-    priority: 4
+    priority: 2
   - difficulty: 50
+    priority: 3
+  - difficulty: 60
+    priority: 4
+  - difficulty: 70
     priority: 5
