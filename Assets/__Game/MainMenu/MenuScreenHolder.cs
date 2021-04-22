@@ -16,6 +16,8 @@ public abstract class MenuScreenHolder<T> : MonoBehaviour where T : MenuScreenHo
 
     public static void Hide()
     {
+        if(!canvasGroup) return;
+        
         canvasGroup.alpha = 0f;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;

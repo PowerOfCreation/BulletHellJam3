@@ -6,12 +6,14 @@ public class CircleSpawn : SpawnEvent
 {
     protected float radius;
     protected int amount;
+    protected float modifier;
 
-    public CircleSpawn(EnemyDifficultyEntry enemyDifficultyEntry, float radius = 1f, int amount = 4)
+    public CircleSpawn(EnemyDifficultyEntry enemyDifficultyEntry, float radius = 1f, int amount = 4, float modifier = 1f)
     {
         this.enemyDifficultyEntry = enemyDifficultyEntry;
         this.radius = radius;
         this.amount = amount;
+        this.modifier = modifier;
     }
 
     public override float GetSpawnPriority(float currentDifficulty)

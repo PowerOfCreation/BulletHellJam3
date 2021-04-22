@@ -150,4 +150,4 @@ MonoBehaviour:
   destroyedSoundEffect: {fileID: 11400000, guid: a80d6681af33ff9488f29a675cb0e0d6, type: 2}
   pickups:
   - {fileID: 1846281267568612210, guid: 2b74c04d1b87fd446a2d168fc1d47d4a, type: 3}
-  chance: 0.02
+  chance: 0.06

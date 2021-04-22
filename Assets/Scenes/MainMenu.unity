@@ -896,6 +896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510742577}
   - component: {fileID: 510742578}
+  - component: {fileID: 510742579}
   m_Layer: 5
   m_Name: Music Volume
   m_TagString: Untagged
@@ -972,10 +973,35 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.47
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 510742579}
+        m_TargetAssemblyTypeName: MusicChange, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &510742579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510742576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5961cd28ca409489f929ccc2711689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicAudioSources: []
 --- !u!1 &544620507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,7 +1598,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860276525}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -2020,6 +2046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043362462}
   - component: {fileID: 1043362461}
+  - component: {fileID: 1043362463}
   m_Layer: 0
   m_Name: CLEANEuroDanceHARDEQ
   m_TagString: Untagged
@@ -2137,6 +2164,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043362463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043362460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eae63dd9ef1b55429872867543cbbe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1092175529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209636136}
   - component: {fileID: 1209636137}
+  - component: {fileID: 1209636138}
   m_Layer: 5
   m_Name: SFX Volume
   m_TagString: Untagged
@@ -2535,10 +2575,35 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.47
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1209636138}
+        m_TargetAssemblyTypeName: SFXChange, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1209636138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209636135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83835ac4e8a61334eac64d4aff2d211b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxAudioSources: []
 --- !u!1 &1222306295
 GameObject:
   m_ObjectHideFlags: 0

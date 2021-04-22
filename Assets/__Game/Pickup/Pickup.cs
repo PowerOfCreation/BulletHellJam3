@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
+    public SoundEffect soundEffect;
+
     public void OnTriggerEnter2D(Collider2D collider2D)
     {
         if(collider2D.gameObject == Player.self.gameObject)
         {
+            soundEffect.Play(GlobalAudioSource.audioSource);
             OnPickup(Player.self);
             Destroy(gameObject);
         }

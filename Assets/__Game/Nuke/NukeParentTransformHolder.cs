@@ -14,6 +14,8 @@ public class NukeParentTransformHolder : MonoBehaviour
     public Image nukeChargedImage;
     public Animator nukeChargedAnimator;
 
+    public SoundEffect nukeSound;
+
     public float chargePerSecond = 1;
     public float maxCharge = 10;
 
@@ -85,6 +87,8 @@ public class NukeParentTransformHolder : MonoBehaviour
         isCharged = false;
         isOnCooldown = true;
         cooldownEndsAtTime = Time.time + cooldownInSeconds;
+
+        nukeSound.Play(GlobalAudioSource.audioSource);
 
         var enemyHealths = EnemyHolder.self.GetComponentsInChildren<EnemyHealth>();
 

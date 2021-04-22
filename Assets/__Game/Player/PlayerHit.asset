@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerHit
   m_EditorClassIdentifier: 
   soundClips:
-  - clip: {fileID: 8300000, guid: a35ac4e3c0e98614cadd840edb13b5d1, type: 3}
+  - clip: {fileID: 8300000, guid: 53e9bc7e56449fc419753390f9c36c1f, type: 3}
     volumeRange: {x: 0.9, y: 1}

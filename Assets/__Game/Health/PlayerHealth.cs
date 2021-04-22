@@ -24,7 +24,7 @@ public class PlayerHealth : Health
 
         if(health <= 0)
         {
-            SceneManager.LoadScene(0);
+            PauseMenu.Show(true);
         }
         else
         {

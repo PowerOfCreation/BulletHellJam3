@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyDestroyed
   m_EditorClassIdentifier: 
   soundClips:
-  - clip: {fileID: 8300000, guid: 776caef064ee9b1458ea6dee1e049e1d, type: 3}
+  - clip: {fileID: 8300000, guid: 3a5da8fd110ef4a42b4a3c25ca4be7f1, type: 3}
     volumeRange: {x: 0.9, y: 1}
