@@ -51,13 +51,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3230391912919548449, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: daa6ba2078415564bb47fe6b15480c9e, type: 2}
     - target: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
       propertyPath: m_Name
-      value: PlayerProjectile Variant
+      value: PlayerProjectileTier2
       objectReference: {fileID: 0}
     - target: {fileID: 8375627460746071543, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 20a8f95b8b2f51246b0dc762ee8e036e, type: 3}
+      objectReference: {fileID: 7808206340235374808, guid: 20a8f95b8b2f51246b0dc762ee8e036e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}

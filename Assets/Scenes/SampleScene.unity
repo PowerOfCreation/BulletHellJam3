@@ -985,6 +985,7 @@ MonoBehaviour:
   cooldownInSeconds: 10
   cooldownEndsAtTime: 0
   nukeableGameObjects: []
+  destructionTime: 0
 --- !u!224 &246046112
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1442,6 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerProjectile: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
   upgradedProjectile: {fileID: 8023780270648985801, guid: 3fc6df7579dbc8045b5779d6476c5ff9, type: 3}
+  upgradedProjectileTier2: {fileID: 1396314225043814268, guid: fc184801328eca948a895a02cb3ca9cf, type: 3}
   soundEffect: {fileID: 11400000, guid: b6919ee7ff5c97647a3f2a809f06ec3d, type: 2}
   upgradeLevel: 0
   upgradeDuration: 10
@@ -2894,6 +2896,8 @@ MonoBehaviour:
   - prefab: {fileID: 7677097890218017813, guid: 2b9d0f511e46d614b8b95f32947549c1, type: 3}
     count: 200
   - prefab: {fileID: 8023780270648985801, guid: 3fc6df7579dbc8045b5779d6476c5ff9, type: 3}
+    count: 200
+  - prefab: {fileID: 1396314225043814268, guid: fc184801328eca948a895a02cb3ca9cf, type: 3}
     count: 200
   - prefab: {fileID: 4897417591975035157, guid: 73ee848e41de00c488da250b0382e780, type: 3}
     count: 1000

@@ -7,6 +7,7 @@ public class PlayerShoot : MonoBehaviour
 {
     public GameObject playerProjectile;
     public GameObject upgradedProjectile;
+    public GameObject upgradedProjectileTier2;
 
     public SoundEffect soundEffect;
 
@@ -63,18 +64,25 @@ public class PlayerShoot : MonoBehaviour
 
         float anglePerUpgradeLevel = (Mathf.PI / 2f) / (upgradeLevel + 1);
 
+        GameObject projectileToUse = upgradedProjectile;
+
         for (int i = 1; i < upgradeLevel + 1; i++)
         {
-            spawnedProjectile = PoolingManager.Spawn(upgradedProjectile, transform.position + position);
+            spawnedProjectile = PoolingManager.Spawn(projectileToUse, transform.position + position);
             spawnedProjectile.GetComponent<Projectile>().Initialize(new Vector3(Mathf.Cos(anglePerUpgradeLevel * i), Mathf.Sin(anglePerUpgradeLevel * i)));
-            spawnedProjectile = PoolingManager.Spawn(upgradedProjectile, transform.position + position);
+            spawnedProjectile = PoolingManager.Spawn(projectileToUse, transform.position + position);
             spawnedProjectile.GetComponent<Projectile>().Initialize(new Vector3(-Mathf.Cos(anglePerUpgradeLevel * i), Mathf.Sin(anglePerUpgradeLevel * i)));
+            projectileToUse = upgradedProjectileTier2;
         }
     }
 
     public void Upgrade()
     {
         upgradeLevel++;
+        if(upgradeLevel > 2)
+        {
+            upgradeLevel = 2;
+        }
         upgradeExpiresAt = Time.time + upgradeDuration;
     }
 }

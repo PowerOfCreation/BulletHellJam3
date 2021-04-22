@@ -9,9 +9,12 @@ public class ProjectileManager : MonoBehaviour
     [HideInInspector]
     public List<Projectile> projectiles = new List<Projectile>(1000);
 
+    public static int explodeTriggerHash;
+
     void Awake()
     {
         self = this;
+        explodeTriggerHash = Animator.StringToHash("explode");
     }
 
     void Update()
@@ -19,10 +22,13 @@ public class ProjectileManager : MonoBehaviour
         Hitscan();
     }
 
+
     private void Hitscan()
     {
         for (int i = 0; i < projectiles.Count; i++)
         {
+            if(!projectiles[i].isStillAlive) continue;
+            
             Collider2D[] results = new Collider2D[10];
 
             int count = Physics2D.OverlapCircleNonAlloc(projectiles[i].transform.position, projectiles[i].radius, results);
@@ -34,7 +40,7 @@ public class ProjectileManager : MonoBehaviour
                     if(results[j].gameObject != Player.self.gameObject)
                     {
                         results[j].GetComponent<IDamageable>()?.Damage(1);
-                        PoolingManager.Despawn(projectiles[i].gameObject);
+                        projectiles[i].Hit();
                     }
                 }
                 else
@@ -42,7 +48,7 @@ public class ProjectileManager : MonoBehaviour
                     if(results[j].gameObject == Player.self.gameObject)
                     {
                         results[j].GetComponent<IDamageable>()?.Damage(1);
-                        PoolingManager.Despawn(projectiles[i].gameObject);
+                        projectiles[i].Hit();
                     }
                 }
             }

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class Projectile : MonoBehaviour
 {
+    private Animator animator;
+
     private Vector3 velocity = Vector3.zero;
 
     public float speed = 8f;
@@ -13,9 +16,12 @@ public class Projectile : MonoBehaviour
 
     public bool isPlayerOwned = false;
 
+    public bool isStillAlive = true;
+
     public void OnEnable()
     {
         ProjectileManager.self.projectiles.Add(this);
+        isStillAlive = true;
     }
 
     public void OnDisable()
@@ -34,6 +40,17 @@ public class Projectile : MonoBehaviour
         this.isPlayerOwned = isPlayerOwned;
     }
 
+    public void Death()
+    {
+        PoolingManager.Despawn(gameObject);
+    }
+
+    public void Hit()
+    {
+        isStillAlive = false;
+        animator.SetTrigger(ProjectileManager.explodeTriggerHash);
+    }
+
     void Update()
     {
         transform.position += velocity * Time.deltaTime * speed;
@@ -46,5 +63,10 @@ public class Projectile : MonoBehaviour
         {
             PoolingManager.Despawn(gameObject);
         }
+    }
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 }
